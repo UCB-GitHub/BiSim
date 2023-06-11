@@ -1,0 +1,131 @@
+---
+title: "Binding dashboard"
+output: pdf_document
+params:
+  n: NA
+  p1_name : NA
+  p1_conc : NA
+  p1_mol_weight : NA
+  p2_name : NA
+  p2_conc : NA
+  p2_mol_weight : NA
+  kd : NA
+  koff : NA
+  kon : NA
+  table1: NA
+  table2: NA
+  table3: NA
+  table4: NA
+  plot1: NA
+  plot2: NA
+  plot3: NA
+  plot4: NA
+  plot5: NA
+  container: NA
+---
+
+
+  
+```{r Values, echo=FALSE, cache=FALSE, warning = FALSE, message = FALSE, tidy=TRUE, fig.width=12,fig.height=7} 
+
+if(is.null(webshot:::find_phantom())){
+webshot::install_phantomjs()
+} 
+h5 (paste(params$p1_name, ":\t\t\t", params$p1_conc))
+h5 (paste("Molecular weight of partner 1:", "\t", params$p1_mol_weight ))
+h5 (paste(params$p2_name, ":\t\t\t", params$p2_conc))
+h5 (paste("Kd:", params$kd))
+h5 (paste("Koff:", params$koff))
+h5 (paste("Kon:", params$kon))
+
+
+#PLOT 1  
+h5(paste("Concentration", params$p1_name, "- ", params$p2_name, "complex (pM) at a fixed Kd of", params$kd))
+sketch <- params$container(params$p1_name, params$p2_name, params$table1) 
+
+DT::datatable(
+        params$table1,
+        container = sketch,
+        rownames = FALSE, 
+        options = list(dom = 't')
+        )%>%
+        formatStyle(params$table1 [ ,1], fontWeight = "bold")
+
+
+ggplotly(params$plot1)
+
+
+  
+#PLOT 2
+h5(paste("Fractional occupancy of ", params$p2_name, " at a fixed Kd of ", params$kd))
+
+sketch <- params$container(params$p1_name, params$p2_name, params$table2)
+
+DT::datatable(
+      params$table2,
+      container = sketch,
+      rownames = FALSE,
+      options = list(dom = 't')
+      )%>%
+      formatStyle(params$table2 [ ,1], fontWeight = "bold")
+
+
+ggplotly(params$plot2)
+
+
+
+
+
+#PLOT 3
+h5(paste("Concentration", params$p1_name, " - ", params$p2_name,  "complex (pM) at a fixed",params$p2_name,  "concentration of",
+                params$p2_conc))
+
+sketch <- params$container(params$p1_name, "Kd", params$table3)
+
+DT::datatable(
+      params$table3,
+      container = sketch,
+      rownames = FALSE,
+      options = list(dom = 't')
+      )%>%
+      formatStyle(params$table3 [ ,1], fontWeight = "bold")
+
+
+
+  ggplotly(params$plot3)
+
+
+
+
+#PLOT 4
+h5(paste("Fractional occupancy of", params$p2_name,"at a fixed",  params$p2_name, "concentration of",
+                      params$p2_conc),params$p2_conc)
+sketch <- params$container(params$p1_name, "Kd", params$table4)
+
+
+DT::datatable(
+      params$table4,
+      container = sketch,
+      rownames = FALSE,
+      options = list(dom = 't')
+      )%>%
+      formatStyle(params$table4 [ ,1], fontWeight = "bold")
+
+
+
+ggplotly(params$plot4)
+
+
+
+
+
+#PLOT 5
+h5("Time to equilibrium")
+
+ggplotly(params$plot5)
+
+
+
+```
+
+

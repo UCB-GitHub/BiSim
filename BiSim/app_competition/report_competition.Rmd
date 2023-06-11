@@ -1,0 +1,119 @@
+---
+title: "Competition dashboard"
+output: pdf_document
+params:
+  n: NA
+  plot1 : NA
+  plot2 : NA
+  plot3 : NA
+  plot4 : NA
+  table1 : NA
+  table2 : NA
+  table3 : NA
+  table4 : NA
+  container : NA
+ 
+---
+
+
+  
+```{r Values, echo=FALSE, cache=FALSE, warning = FALSE, message = FALSE, tidy=TRUE, fig.width=12,fig.height=7} 
+
+if(is.null(webshot:::find_phantom())){
+webshot::install_phantomjs()
+} 
+
+
+# insert page break
+  cat("\n")
+  cat("#####\n")
+  cat("\n")
+  
+#PLOT 1  
+ggplotly(params$plot1)
+
+# insert page break
+  cat("\n")
+  cat("#####\n")
+  cat("\n")
+
+#TABLE 1
+datatable(
+  params$table1,
+  rownames = FALSE, 
+  options = list(dom = 't')
+ )%>%
+  formatStyle(params$table1 [ ,1], fontWeight = "bold")
+
+# insert page break
+  cat("\n")
+  cat("#####\n")
+  cat("\n")
+
+#PLOT 2  
+ggplotly(params$plot2)
+
+# insert page break
+  cat("\n")
+  cat("#####\n")
+  cat("\n")  
+    
+#TABLE 2
+datatable(
+  params$table2,
+  rownames = FALSE, 
+  options = list(dom = 't')
+ )%>%
+  formatStyle(params$table1 [ ,1], fontWeight = "bold")
+
+# insert page break
+  cat("\n")
+  cat("#####\n")
+  cat("\n")
+
+#PLOT 3  
+ggplotly(params$plot3)
+
+# insert page break
+  cat("\n")
+  cat("#####\n")
+  cat("\n") 
+
+#TABLE 3
+datatable(
+  params$table3,
+  rownames = FALSE, 
+  options = list(dom = 't')
+ )%>%
+  formatStyle(params$table1 [ ,1], fontWeight = "bold")
+
+# insert page break
+  cat("\n")
+  cat("#####\n")
+  cat("\n")
+
+#PLOT 4  
+ggplotly(params$plot4)
+
+# insert page break
+  cat("\n")
+  cat("#####\n")
+  cat("\n") 
+  
+#TABLE 4
+datatable(
+  params$table4,
+  rownames = FALSE, 
+  options = list(dom = 't')
+ )%>%
+  formatStyle(params$table1 [ ,1], fontWeight = "bold")
+
+
+# insert page break
+  cat("\n")
+  cat("#####\n")
+  cat("\n")
+
+```
+
+

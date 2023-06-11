@@ -1,0 +1,156 @@
+/* Navbar */
+/* Navbar header */
+/* Make title wider */
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand{
+  width: 271px;
+  text-align: center;
+  font-size: 26px;
+}
+
+
+/*Change the background of the whole navbar*/
+.navbar-default{
+  background-color: #293887;
+  /*margin-bottom: -1px;*/
+}
+
+
+.tab-content{
+  margin-top: -21px;
+}
+
+
+/* Chnage the background and text of the header */
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover{
+  background-color: #2D4B95;
+  color: #FFFFFF;
+}
+
+/* Change the background and text on the selected tab */
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+  background-color: #293887;
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Change text on the non active tabs */
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li>a:hover{
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Make space for tabs wider */
+.navbar-nav{
+  width: 70%;
+}
+
+/* Header image */
+img {
+    margin-top: -8px;
+}
+
+/* Sidebar */
+/* Change background colour */
+.skin-blue .left-side, .skin-blue .main-sidebar, .skin-blue .wrapper{
+  background-color: #ffffff;
+}
+
+/* Change text colour */
+.sidebar {
+    color: #000000;
+}
+
+/* Content */
+/* Change background colour */
+/* Remove unecessary margin */
+.content-wrapper, .right-side{
+  background-color: #E5E5E5;
+  /*margin-top: -20px;*/
+  margin-top: 0;
+  padding-top: 20px;
+}
+
+/* Remove unecessary padding */
+.container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/* Title font */
+.h5, h5 {
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 15px;
+    margin-top: -10px;
+}
+
+/* Select input */
+/* title */
+label {
+    font-weight: normal;
+    font-size: 12px;
+}
+
+/* Border and shadow of the box */
+.selectize-input{
+  border: #DADADA;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
+  border-radius: 2px;
+}
+
+/*Change colours of the production step selection*/
+#selectProductionStepUPS + div>.selectize-input {
+  color: #F9A25E;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#selectProductionStepDPS + div>.selectize-input {
+  color: #F9A25E;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/*change margins to align log scale check boxes*/
+.checkbox, .radio {
+  margin-top: 0;
+  margin-bottom: -2px;
+}
+
+/* inline class */
+#inline label{ 
+  display: table-cell; 
+  text-align: center; 
+  vertical-align: middle; 
+} 
+
+#inline .form-group { 
+  display: table-row;
+}
+
+/* button design */
+.btn-default {
+    background-color: #FFFFFF;
+    color: #3c8dbc;
+    border: #DADADA;
+    transition: 0.8s;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
+}
+
+/* button hover design */
+.btn-default.hover, .btn-default:active, .btn-default:hover{
+  background-color: #FFFFFF;
+  box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.20);
+  color: #3c8dbc;
+}
+
+/* global form control design */
+/* done for the trend line input values */
+.form-control{
+  border: #DADADA;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
+  border-radius: 2px;
+}

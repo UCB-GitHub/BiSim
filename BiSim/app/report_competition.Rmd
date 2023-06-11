@@ -1,0 +1,160 @@
+---
+title: "Competition dashboard"
+output: html_document
+params:
+  n: NA
+  p1_name : NA
+  p1_conc : NA
+  p1_mol_weight : NA
+  p2_name : NA
+  p2_conc : NA
+  p2_mol_weight : NA
+  p1unit: NA
+  p2unit: NA
+  comp_name : NA
+  comp_conc : NA
+  comp_unit : NA,
+  comp_mol_weight : NA
+  kd : NA
+  ki : NA
+  plot1 : NA
+  plot2 : NA
+  plot3 : NA
+  plot4 : NA
+  table1 : NA
+  table2 : NA
+  table3 : NA
+  table4 : NA
+  namep1 : NA
+  namep2 : NA
+  namep12 : NA
+  namep22 : NA
+  container : NA
+ 
+---
+
+
+\
+\
+`r toString(params$p1_name)`: `r toString(params$p1_conc)` (`r toString(params$p1unit)`)\
+Molecular weight of partner 1 : `r toString(params$p1_mol_weight)` (dalton)\
+`r toString(params$p2_name)` : `r toString(params$p2_conc)` (`r toString(params$p2unit)`)\ 
+Molecular weight of partner 2 : `r toString(params$p2_mol_weight)` (dalton)\
+`r toString(params$comp_name)` : `r toString(params$comp_conc)` (`r toString(params$comp_unit)`)\ 
+Molecular weight of the competing partner : `r toString(params$p2_mol_weight)` (dalton)\
+Kd : `r toString(params$kd)`\
+Ki : `r toString(params$ki)`\
+\
+\
+\
+\
+
+
+  
+```{r echo=FALSE, cache=FALSE, warning = FALSE, message = FALSE, tidy=TRUE, fig.width=12,fig.height=7} 
+
+if(is.null(webshot:::find_phantom())){
+webshot::install_phantomjs()
+} 
+
+#PLOT 1  
+ggplotly(params$plot1)
+```
+\
+
+```{r echo=FALSE, cache=FALSE, warning = FALSE, message = FALSE, tidy=TRUE, fig.width=12,fig.height=7} 
+
+sketch <- params$container(params$namep1, params$namep2, params$table1)
+
+#TABLE 1
+datatable(
+  params$table1,
+  container = sketch,
+  rownames = FALSE, 
+  options = list(dom = 't')
+ )%>%
+  formatStyle(params$table1 [ ,1], fontWeight = "bold")
+```
+\
+\
+\
+\
+
+```{r echo=FALSE, cache=FALSE, warning = FALSE, message = FALSE, tidy=TRUE, fig.width=12,fig.height=7} 
+#PLOT 2  
+ggplotly(params$plot2)
+```
+
+\
+
+
+```{r echo=FALSE, cache=FALSE, warning = FALSE, message = FALSE, tidy=TRUE, fig.width=12,fig.height=7}   
+sketch <- params$container(params$namep1, params$namep2, params$table2)
+
+#TABLE 2
+datatable(
+  params$table2,
+  container = sketch,
+  rownames = FALSE, 
+  options = list(dom = 't')
+ )%>%
+  formatStyle(params$table2 [ ,1], fontWeight = "bold")
+
+```
+\
+\
+\
+\
+
+
+
+```{r echo=FALSE, cache=FALSE, warning = FALSE, message = FALSE, tidy=TRUE, fig.width=12,fig.height=7} 
+#PLOT 3  
+ggplotly(params$plot3)
+```
+\
+
+```{r echo=FALSE, cache=FALSE, warning = FALSE, message = FALSE, tidy=TRUE, fig.width=12,fig.height=7} 
+sketch <- params$container(params$namep12, params$namep22, params$table3)
+#TABLE 3
+datatable(
+  params$table3,
+  container = sketch,
+  rownames = FALSE, 
+  options = list(dom = 't')
+ )%>%
+  formatStyle(params$table3 [ ,1], fontWeight = "bold")
+```
+\
+\
+\
+\
+
+
+```{r echo=FALSE, cache=FALSE, warning = FALSE, message = FALSE, tidy=TRUE, fig.width=12,fig.height=7} 
+
+#PLOT 4  
+ggplotly(params$plot4)
+```
+\
+
+
+```{r echo=FALSE, cache=FALSE, warning = FALSE, message = FALSE, tidy=TRUE, fig.width=12,fig.height=7} 
+
+ketch <- params$container(params$namep12, params$namep22, params$table4)
+
+#TABLE 4
+datatable(
+  params$table4,
+  container = sketch,
+  rownames = FALSE, 
+  options = list(dom = 't')
+ )%>%
+  formatStyle(params$table4 [ ,1], fontWeight = "bold")
+```
+
+
+
+```
+
+
